@@ -1,0 +1,30 @@
+#include <Arduino.h>
+#include <LiquidCrystal.h>
+
+// Pin assignments: RS, E, D4, D5, D6, D7
+LiquidCrystal lcd(20, 21, 36, 37, 38, 39);
+
+// put function declarations here:
+int myFunction(int, int);
+
+void setup() {
+  // put your setup code here, to run once:
+
+  lcd.begin(16, 2);  // 16 columns, 2 rows
+  lcd.print("Hello, World!");
+  delay(2000);
+
+  lcd.clear();
+  lcd.print("Greenhouse here ");
+  lcd.setCursor(0,1);
+  lcd.print(":)");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
+
+// put function definitions here:
+int myFunction(int x, int y) {
+  return x + y;
+}
