@@ -1,0 +1,34 @@
+#include <Arduino.h>
+#define SPEAKER_PIN 40  // Change to your chosen GPIO
+
+// put function declarations here:
+int myFunction(int, int);
+
+void playNote(int freq, int duration, int volume = 230) {
+  ledcSetup(0, freq, 8);       // Set PWM frequency & resolution
+  ledcAttachPin(SPEAKER_PIN, 0);
+  ledcWrite(0, volume);        // Start sound
+  delay(duration);
+  ledcWrite(0, 0);             // Stop sound
+  delay(30);                   // Small pause between notes
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  playNote(523, 300);  // C5
+  playNote(659, 300);  // E5
+  playNote(784, 300);  // G5
+  playNote(1047, 500); // C6 (octave up)
+  playNote(784, 300);  // G5
+  playNote(659, 300);  // E5
+  playNote(523, 400);  // C5
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
+
+// put function definitions here:
+int myFunction(int x, int y) {
+  return x + y;
+}
